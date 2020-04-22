@@ -3,7 +3,7 @@
 
 # Static files
 /Static
-
+/media
 
 ### Django ###
 *.log

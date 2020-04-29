@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}  <!-- This document must be name base_site.html in order to change
+                                     the default styles and content of the django admin app -->
+{% load static %}
+
+{% block branding %}
+
+<h1 id="head">
+    <img src="{% static 'img/logo.png' %}" height="50" width="80" alt="">
+    Admin Area
+</h1>
+
+{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}

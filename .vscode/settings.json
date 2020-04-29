@@ -1,3 +1,14 @@
 {
-    "python.pythonPath": "C:\\Users\\gsc22\\.virtualenvs\\btre_project-BXhxfuIj\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\gsc22\\.virtualenvs\\btre_project-BXhxfuIj\\Scripts\\python.exe",
+    "remote.extensionKind": {
+    
+    },
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django",
+        "--errors-only"
+    ],
+    "editor.wordWrap": "on",
+    "editor.tabSize": 2,
+    "prettier.singleQuote": true,
+    
 }

@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import Listing
 
@@ -16,7 +16,19 @@ def index(request):
     return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
-    return render(request, 'listings/listing.html')
+    """ 
+    This function renders an indiviual listing after hitting listings/:listing_id,
+    get_object_or_404 is a django shortcut that is imported at the top. https://docs.djangoproject.com/en/3.0/topics/http/shortcuts/
+    """
+    listing = get_object_or_404(Listing, pk=listing_id)
+    print(f"listing: {listing.photos_main.url}")
+    context = {
+        'listing': listing
+
+    }  
+
+
+    return render(request, 'listings/listing.html', context)
 
 def search(request):
     return render(request, 'listings/search.html')

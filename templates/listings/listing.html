@@ -42,35 +42,35 @@
         <div class="row mb-5 thumbs">
           {% if listing.photos_1 %}
           <div class="col-md-2">
-            <a href="{{ listing.photos_1.url}}" data-lightbox="home-images">
+            <a href="{{ listing.photos_1.url}}" data-lightbox="home-images" data-title="{{ listing.title }}" >
               <img src="{{ listing.photos_1.url}}" alt="" class="img-fluid">
             </a>
           </div>
           {% endif %}
           {% if listing.photos_2 %}         
           <div class="col-md-2">
-            <a href="{{ listing.photos_2.url}}" data-lightbox="home-images">
+            <a href="{{ listing.photos_2.url}}" data-lightbox="home-images"  data-title="{{ listing.title }}">
               <img src="{{ listing.photos_2.url}}" alt="" class="img-fluid">
             </a>
           </div>
           {% endif %}
           {% if listing.photos_3 %}
           <div class="col-md-2">
-            <a href="{{ listing.photos_3.url}}" data-lightbox="home-images">
+            <a href="{{ listing.photos_3.url}}" data-lightbox="home-images" data-title="{{ listing.title }}">
               <img src="{{ listing.photos_3.url}}" alt="" class="img-fluid">
             </a>
           </div>
           {% endif %}
           {% if listing.photos_4 %}
           <div class="col-md-2">
-            <a href="{{ listing.photos_4.url}}" data-lightbox="home-images">
+            <a href="{{ listing.photos_4.url}}" data-lightbox="home-images" data-title="{{ listing.title }}">
               <img src="{{ listing.photos_4.url}}" alt="" class="img-fluid">
             </a>
           </div>
           {% endif %}
           {% if listing.photos_5 %}
           <div class="col-md-2">
-            <a href="{{ listing.photos_5.url}}" data-lightbox="home-images">
+            <a href="{{ listing.photos_5.url}}" data-lightbox="home-images" data-title="{{ listing.title }}">
               <img src="{{ listing.photos_5.url}}" alt="" class="img-fluid">
             </a>
           </div>

@@ -1,6 +1,8 @@
 {% extends 'base.html' %} 
 {% block content %}
 {% load humanize %}
+
+<!-- SEARCH FORM  -->
 <section id="showcase-inner" class="showcase-search text-white py-5">
   <div class="container">
     <div class="row text-center">
@@ -36,11 +38,19 @@
                 <option selected="true" disabled="disabled">Bedrooms (Any)</option>
                 {% for key,value in bedroom_choices.items %}
                     <option value="{{ key }}">{{ value }}</option>
-                    {% endfor %}
+                {% endfor %}
               </select>
             </div>
-            <div class="col-md-6 mb-3">
-              <select name="price" class="form-control">
+            <div class="col-md-3 mb-3">
+              <select name="min_price" class="form-control">
+                <option selected="true" disabled="disabled">Min Price (All)</option>
+                {% for key,value in price_choices.items %}
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-3 mb-3">
+              <select name="max_price" class="form-control">
                 <option selected="true" disabled="disabled">Max Price (All)</option>
                 {% for key,value in price_choices.items %}
                 <option value="{{ key }}">{{ value }}</option>
@@ -77,7 +87,30 @@
 <section id="listings" class="py-4">
   <div class="container">
     <div class="row">
-
+      {% if query %}
+      <div class="col-12">        
+        <p>Showing results for  
+          {% if query.keywords %}
+            Keywords: {{query.keywords}}
+          {% endif %}
+          {% if query.city %}
+            City: {{query.city}}
+          {% endif %}
+          {% if query.state %}
+            State: {{query.state}}
+          {% endif %}
+          {% if query.bedrooms %}
+            Bedrooms: {{query.bedrooms}}
+          {% endif %}
+          {% if query.min_price %}
+            Min Price: ${{query.min_price | intcomma}}
+          {% endif %}
+          {% if query.max_price %}
+            Max Price: ${{query.max_price | intcomma}}
+          {% endif %}
+        </p>
+      </div>
+      {% endif %}
       <!-- Listing Generator -->
       {% if listings %}
       {% for listing in listings %}

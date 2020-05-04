@@ -31,7 +31,7 @@ def listing(request, listing_id):
     return render(request, 'listings/listing.html', context)
 
 def search(request):
-    print(f"\nrequest: {request} \n")
+    print(f"\nrequest.GET: {request} \n")
     queryset_list = Listing.objects.order_by('-list_date')
     print("queryset_list (ABOVE)" ,queryset_list)
     # keyword 
@@ -50,13 +50,32 @@ def search(request):
         state = request.GET['state']
         if state:
             queryset_list = queryset_list.filter(state__iexact=state)
+    
+    if 'bedrooms' in request.GET:
+        
+        bedrooms = request.GET['bedrooms']
+        print(type(bedrooms))
+        if bedrooms:
+            queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
+
+    if 'min_price' in request.GET:
+        min_price = request.GET['min_price']
+        if min_price:
+            queryset_list = queryset_list.filter(price__gte=min_price)
+
+    if 'max_price' in request.GET:
+        max_price = request.GET['max_price']
+        if max_price:
+            queryset_list = queryset_list.filter(price__lte=max_price)
+            
 
     print("queryset_list (BELOW)" ,queryset_list)
     context = {
         'listings': queryset_list,
         'state_choices': state_choices,
         'price_choices': price_choices,
-        'bedroom_choices': bedroom_choices
+        'bedroom_choices': bedroom_choices,
+        'query': request.GET
     }
 
     return render(request, 'listings/search.html', context)

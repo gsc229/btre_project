@@ -31,10 +31,27 @@ def listing(request, listing_id):
     return render(request, 'listings/listing.html', context)
 
 def search(request):
- 
+    print(f"\nrequest: {request} \n")
     queryset_list = Listing.objects.order_by('-list_date')
+    print("queryset_list (ABOVE)" ,queryset_list)
+    # keyword 
+    if 'keywords' in request.GET:
+        keywords = request.GET['keywords']
+        if keywords:
+            queryset_list = queryset_list.filter(description__icontains=keywords)
+    # city
+    if 'city' in request.GET:
+        city = request.GET['city']
+        if city:
+            queryset_list = queryset_list.filter(city__iexact=city)
+    
+    # state
+    if 'state' in request.GET:
+        state = request.GET['state']
+        if state:
+            queryset_list = queryset_list.filter(state__iexact=state)
 
-
+    print("queryset_list (BELOW)" ,queryset_list)
     context = {
         'listings': queryset_list,
         'state_choices': state_choices,

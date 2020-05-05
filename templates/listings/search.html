@@ -4,6 +4,7 @@
 
 <!-- SEARCH FORM  -->
 <section id="showcase-inner" class="showcase-search text-white py-5">
+  
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
@@ -12,20 +13,24 @@
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label class="sr-only">Keywords</label>
-              <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
+              <input type="text" name="keywords" value="{{query.keywords}}" class="form-control" placeholder="Keyword (Pool, Garage, etc)">
             </div>
 
             <div class="col-md-4 mb-3">
               <label class="sr-only">City</label>
-              <input type="text" name="city" class="form-control" placeholder="City">
+              <input type="text" name="city" value="{{query.city}}" class="form-control" placeholder="City">
             </div>
 
             <div class="col-md-4 mb-3">
-              <label class="sr-only">State</label>
-              <select name="state" class="form-control">
-                <option selected="true" disabled="disabled">State (All)</option>
-                {% for key,value in state_choices.items %}
-                <option value="{{ key }}">{{ value }}</option>
+              <label class="sr-only">State  </label>
+              <select name="state"  class="form-control">
+                <option selected="true" value="">State (All)</option>                
+                {% for key, value in state_choices.items %}               
+                    <option value="{{ key }}"
+                    {% if key == query.state %}                    
+                    selected                     
+                    {% endif %}  
+                    >{{ value }}</option>
                 {% endfor %}
               </select>
             </div>
@@ -35,31 +40,43 @@
             <div class="col-md-6 mb-3">
               <label class="sr-only">Bedrooms</label>
               <select name="bedrooms" class="form-control">
-                <option selected="true" disabled="disabled">Bedrooms (Any)</option>
-                {% for key,value in bedroom_choices.items %}
-                    <option value="{{ key }}">{{ value }}</option>
+                <option selected="true" value="">Bedrooms (Any)</option>
+                {% for key, value in bedroom_choices.items %}
+                <option value="{{ key }}"
+                {% if key == query.bedrooms %}                    
+                selected                     
+                {% endif %}  
+                >{{ value }}</option>
                 {% endfor %}
               </select>
             </div>
             <div class="col-md-3 mb-3">
               <select name="min_price" class="form-control">
-                <option selected="true" disabled="disabled">Min Price (All)</option>
-                {% for key,value in price_choices.items %}
-                <option value="{{ key }}">{{ value }}</option>
+                <option selected="true" value="">Min Price (All)</option>
+                {% for key, value in price_choices.items %}
+                <option value="{{ key }}"
+                    {% if key == query.min_price %}                    
+                    selected                     
+                    {% endif %}  
+                    >{{ value }}</option>
                 {% endfor %}
               </select>
             </div>
             <div class="col-md-3 mb-3">
               <select name="max_price" class="form-control">
-                <option selected="true" disabled="disabled">Max Price (All)</option>
+                <option selected="true" value="">Max Price (All)</option>
                 {% for key,value in price_choices.items %}
-                <option value="{{ key }}">{{ value }}</option>
+                <option value="{{ key }}"
+                    {% if key == query.max_price %}                    
+                    selected                     
+                    {% endif %}  
+                    >{{ value }}</option>
                 {% endfor %}
               </select>
             </div>
           </div>
           <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
-        </form>
+        </form>        
       </div>
     </div>
   </div>

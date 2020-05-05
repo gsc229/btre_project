@@ -1,9 +1,15 @@
 {% extends 'base.html' %} 
 {% block content %}
 {% load humanize %}
+
+
+
+<!-- Alerts if you want to redirect to the home paget an show an alert -->
+{% include 'partials/_alerts.html' %}
 <!-- Showcase -->
 <section id="showcase">
-    <div class="container text-center">
+    
+    <div class="container text-center">      
       <div class="home-search p-5">
         <div class="overlay p-5">
           <h1 class="display-4 mb-4">
@@ -63,12 +69,15 @@
     </div>
   </section>
 
+  
+  
+
+
   <!-- Latest Listings -->
   <section id="listings" class="py-5">
     <div class="container">
       <h3 class="text-center mb-3">Latest Listings</h3>
-      <div class="row">
-        
+      <div class="row">        
         {% if listings %}
           {% for listing in listings %}
             <div class="col-md-6 col-lg-4 mb-4">
@@ -124,6 +133,8 @@
       </div>
     </div>
   </section>
+
+
   <!-- Services -->
   <section id="services" class="py-5 bg-secondary text-white">
     <div class="container">

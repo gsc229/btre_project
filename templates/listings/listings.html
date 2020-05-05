@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load humanize %}
-
+{% block title %} | Browse Properties{% endblock %} <!-- block title is referencig the base.html file in the header's <title> you can access it in other pages like here in index.html -->
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
 
   <!-- Breadcrumb -->
   <section id="bc" class="mt-3">

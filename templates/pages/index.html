@@ -1,14 +1,12 @@
 {% extends 'base.html' %} 
-{% block content %}
 {% load humanize %}
-
-
+{% block title %} | Welcome{% endblock %} <!-- block title is referencig the base.html file in the header's <title> you can access it in other pages like here in index.html -->
+{% block content %}
 
 <!-- Alerts if you want to redirect to the home paget an show an alert -->
 {% include 'partials/_alerts.html' %}
 <!-- Showcase -->
-<section id="showcase">
-    
+<section id="showcase">    
     <div class="container text-center">      
       <div class="home-search p-5">
         <div class="overlay p-5">

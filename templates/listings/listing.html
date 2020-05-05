@@ -159,7 +159,17 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %} <!-- django's cross-site forgery prention token. Will tie the user's session to the post request -->
+          <!-- For inquries we'll need the user's id, but the user won't necessarilly know his id, so we provide it in a hidden input field
+          upon the inquiry subission
+          -->
+
+          {% if user.is_authenticated %}
+            <input type="hidden" name="user_id" value="{{ user.id  }}"> <!-- hidden input registered and logged in users -->
+          {% esle %}
+            <input type="hidden" name="user_id" value="0"> <!-- hidden input for unregistered/unloggedin users - we just set the id value to 0 in this case -->
+          {% endif %}
           <div class="form-group">
             <label for="property_name" class="col-form-label">Property:</label>
             <input type="text" name="listing" class="form-control" value="{{ listing.title }}" disabled>

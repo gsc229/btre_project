@@ -160,27 +160,34 @@
       </div>
       <div class="modal-body">
         <form action="{% url 'contact' %}" method="POST">
-          {% csrf_token %} <!-- django's cross-site forgery prention token. Will tie the user's session to the post request -->
+          {% csrf_token %} <!-- django's cross-site forgery prevention token will tie the user's session to the post request -->
           <!-- For inquries we'll need the user's id, but the user won't necessarilly know his id, so we provide it in a hidden input field
-          upon the inquiry subission
-          -->
-
+          upon the inquiry subission -->
           {% if user.is_authenticated %}
             <input type="hidden" name="user_id" value="{{ user.id  }}"> <!-- hidden input registered and logged in users -->
-          {% esle %}
+          {% else %}
             <input type="hidden" name="user_id" value="0"> <!-- hidden input for unregistered/unloggedin users - we just set the id value to 0 in this case -->
           {% endif %}
+          <!-- We'll want the realor's email as well when we send the submission so that we can email the realtor -->
+          <!-- We use another hidden input -->
+          <!-- The listing has a foreign key field called realtor. we can access any property of the realtor through listing.realtor.property -->
+          <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+          <input type="hidden" name="listing_id" value="{{ listing.id }}">
           <div class="form-group">
             <label for="property_name" class="col-form-label">Property:</label>
             <input type="text" name="listing" class="form-control" value="{{ listing.title }}" disabled>
           </div>
           <div class="form-group">
             <label for="name" class="col-form-label">Name:</label>
-            <input type="text" name="name" class="form-control" required>
+            <input type="text" name="name" class="form-control" {% if user.is_authenticated %}
+            value="{{ user.first_name }} {{ user.last_name }}"
+            {% endif %} required>
           </div>
           <div class="form-group">
             <label for="email" class="col-form-label">Email:</label>
-            <input type="email" name="email" class="form-control" required>
+            <input type="email" name="email" class="form-control" {% if user.is_authenticated %}
+            value="{{ user.email }}"
+            {% endif %} required>
           </div>
           <div class="form-group">
             <label for="phone" class="col-form-label">Phone:</label>

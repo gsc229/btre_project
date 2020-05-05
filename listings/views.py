@@ -24,9 +24,7 @@ def listing(request, listing_id):
     print(f"listing: {listing.photos_main.url}")
     context = {
         'listing': listing
-
     }  
-
 
     return render(request, 'listings/listing.html', context)
 

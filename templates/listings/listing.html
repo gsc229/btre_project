@@ -3,6 +3,7 @@
 {% load humanize %}
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
+  {% include 'partials/_alerts.html' %}
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
@@ -175,7 +176,7 @@
           <input type="hidden" name="listing_id" value="{{ listing.id }}">
           <div class="form-group">
             <label for="property_name" class="col-form-label">Property:</label>
-            <input type="text" name="listing" class="form-control" value="{{ listing.title }}" disabled>
+            <input type="text" name="listing" class="form-control" value="{{ listing.title }}">
           </div>
           <div class="form-group">
             <label for="name" class="col-form-label">Name:</label>

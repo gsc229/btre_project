@@ -31,7 +31,7 @@ def listing(request, listing_id):
     return render(request, 'listings/listing.html', context)
 
 def search(request):
-    print(f"\nrequest.GET: {request} \n")
+    print(f"\nrequest.GET: {request.GET} \n")
     queryset_list = Listing.objects.order_by('-list_date')
     print("queryset_list (ABOVE)" ,queryset_list)
     # keyword 

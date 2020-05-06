@@ -30,9 +30,9 @@ def contact(request):
   #Send Email
   send_mail(
     'Property Listing Inquiry',
-    'There has been an inquiry for ' + listing + '. Sign into the admin panel for more info',
-    'greg-cameron@lambdastudents.com',
-    [realtor_email, 'gsc229@gmail.com', 'gsc229dev@gmail.com'],
+    'There has been an inquiry for ' + listing + ' from '+ email +'. Sign into the admin panel for more info',
+     email,
+    [realtor_email, 'gsc229dev@gmail.com'],
     fail_silently=False
 
   )

@@ -100,6 +100,14 @@ You should now get let in as the new user
 ```
 $ ssh djangoadmin@YOUR_SERVER_IP
 ```
+Handling "permission denied (publidkey)" error:
+```
+$ eval `ssh-agent -s` //returns agent pid 'some id #'
+
+$ ssh-add ./.ssh/id_rsa_do  // returns Identity added: ./.ssh/id_rsa_do (your device name)
+
+$ ssh djangoadmin@YOUR_SERVER_IP // should log you in now
+```
 
 ### Disable root login
 

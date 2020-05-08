@@ -4,7 +4,7 @@
 # environment vars
 .env
 # Static files
-/Static
+
 /media
 
 ### Django ###

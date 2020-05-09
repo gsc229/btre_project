@@ -13,7 +13,7 @@ pillow = "*"
 pylint-django = "*"
 python-dotenv = "*"
 gunicorn = "*"
-
+django-heroku = "*"
 
 [requires]
 python_version = "3.8"

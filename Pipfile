@@ -9,10 +9,11 @@ pylint = "*"
 [packages]
 django = "*"
 psycopg2 = "*"
-psycopg2-binary = "*"
 pillow = "*"
 pylint-django = "*"
 python-dotenv = "*"
+gunicorn = "*"
+
 
 [requires]
 python_version = "3.8"

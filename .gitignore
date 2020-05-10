@@ -7,7 +7,7 @@ Pipfile.lock
 # environment vars
 .env
 # Static files
-
+staticfiles
 /media
 
 ### Django ###

@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y54w0o_et*-&!ltbl*3a45*o5jd)n^t=ij1r)_zw3lv+a0i#r9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com']
 

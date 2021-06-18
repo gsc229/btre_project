@@ -1,10 +1,13 @@
 # Created by https://www.gitignore.io/api/django
 # Edit at https://www.gitignore.io/?templates=django
-
+# .vscode
+/.vscode
+.vscode
+Pipfile.lock
 # environment vars
 .env
 # Static files
-
+staticfiles
 /media
 
 ### Django ###

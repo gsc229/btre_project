@@ -6,6 +6,8 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 bandit = "*"
+flake8 = "*"
+mypy = "*"
 
 [packages]
 django = "*"

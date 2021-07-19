@@ -8,15 +8,14 @@ pylint = "*"
 
 [packages]
 django = "*"
-psycopg2 = "*"
 pillow = "*"
 pylint-django = "*"
 python-dotenv = "*"
 gunicorn = "*"
-django-heroku = "*"
 whitenoise = "*"
 django-storages = "*"
 boto3 = "*"
+psycopg2-binary = "==2.8.6"
 
 [requires]
 python_version = "3.8"

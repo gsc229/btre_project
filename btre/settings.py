@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from dotenv import load_dotenv
 load_dotenv()
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,16 +81,9 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btredb',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost'
+DATABASES = {}
+DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
-    }
-}
 
 
 # Password validation
@@ -153,14 +145,14 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL')
 
 # AWS S3 Bucket Config
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-AWS_S3_SIGNATURE_VERSION = os.getenv('AWS_S3_SIGNATURE_VERSION')
-AWS_DEFAULT_REGION = os.getenv('AWS_DEFAULT_REGION')
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_FILE_OVERWRITE = os.getenv('AWS_S3_FILE_OVERWRITE')
-AWS_DEFAULT_ACL = os.getenv('AWS_DEFAULT_ACL')
+AMZWS_ACCESS_KEY_ID = os.getenv('AMZWS_ACCESS_KEY_ID')
+AMZWS_SECRET_ACCESS_KEY = os.getenv('AMZWS_SECRET_ACCESS_KEY')
+AMZWS_S3_SIGNATURE_VERSION = os.getenv('AMZWS_S3_SIGNATURE_VERSION')
+AMZWS_DEFAULT_REGION = os.getenv('AMZWS_DEFAULT_REGION')
+AMZWS_STORAGE_BUCKET_NAME = os.getenv('AMZWS_STORAGE_BUCKET_NAME')
+AMZWS_S3_FILE_OVERWRITE = os.getenv('AMZWS_S3_FILE_OVERWRITE')
+AMZWS_DEFAULT_ACL = os.getenv('AMZWS_DEFAULT_ACL')
 DEFAULT_FILE_STORAGE = os.getenv('DEFAULT_FILE_STORAGE')
 STATICFILES_STORAGE= os.getenv('STATICFILES_STORAGE')
 
-django_heroku.settings(locals())
+

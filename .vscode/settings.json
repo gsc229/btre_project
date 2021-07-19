@@ -10,7 +10,8 @@
     "editor.wordWrap": "on",
     "editor.tabSize": 2,
     "prettier.singleQuote": true,
-    "python.linting.pylintEnabled": true,
+    "python.linting.pylintEnabled": false,
     "python.linting.enabled": true,
+    "python.linting.banditEnabled": true,
     
 }

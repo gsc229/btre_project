@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from dotenv import load_dotenv
 load_dotenv()
-import django_heroku
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -163,4 +166,4 @@ AWS_DEFAULT_ACL = os.getenv('AWS_DEFAULT_ACL')
 DEFAULT_FILE_STORAGE = os.getenv('DEFAULT_FILE_STORAGE')
 STATICFILES_STORAGE= os.getenv('STATICFILES_STORAGE')
 
-django_heroku.settings(locals())
+

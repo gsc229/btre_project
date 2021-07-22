@@ -28,7 +28,7 @@ SECRET_KEY = 'y54w0o_et*-&!ltbl*3a45*o5jd)n^t=ij1r)_zw3lv+a0i#r9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com', 'btre-project-bay.vercel.app']
+ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com', 'btre-project-bay.vercel.app', 'localhost']
 
 # Application definition
 
@@ -164,6 +164,6 @@ AWS_STORAGE_BUCKET_NAME = os.getenv('AMZWS_STORAGE_BUCKET_NAME')
 AWS_S3_FILE_OVERWRITE = os.getenv('AMZWS_S3_FILE_OVERWRITE')
 AWS_DEFAULT_ACL = os.getenv('AMZWS_DEFAULT_ACL')
 DEFAULT_FILE_STORAGE = os.getenv('DEFAULT_FILE_STORAGE')
-STATICFILES_STORAGE= os.getenv('STATICFILES_STORAGE')
+#STATICFILES_STORAGE= os.getenv('STATICFILES_STORAGE')
 
 

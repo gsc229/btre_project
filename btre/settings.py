@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com', 'localhost', '134.209.160.227', 'gregc-realestate.com', 'www.gregc-realestate.com']
 
 # Application definition
 

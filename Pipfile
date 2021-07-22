@@ -17,6 +17,8 @@ django-heroku = "*"
 whitenoise = "*"
 django-storages = "*"
 boto3 = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"

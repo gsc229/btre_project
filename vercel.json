@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+        "src": "btre/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    },
+    {
+        "src": "build_files.sh",
+        "use": "@vercel/static",
+        "config": {
+            "distDir": "staticfiles"
+        }
+    }
+],
+  "routes": [
+      {
+          "src": "/(.*)",
+          "dest": "btre/wsgi.py"
+      }
+  ]
+}

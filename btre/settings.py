@@ -11,11 +11,17 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+<<<<<<< HEAD
 
 from dotenv import load_dotenv
 load_dotenv()
 
 import dj_database_url
+=======
+import dj_database_url
+from dotenv import load_dotenv
+load_dotenv()
+>>>>>>> 2964a674872cde8c8efd95e539aa0a01a770e90b
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +36,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com', 'localhost', '134.209.160.227', 'gregc-realestate.com', 'www.gregc-realestate.com']
+=======
+ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com', 'btre-project-bay.vercel.app', 'localhost']
+>>>>>>> 2964a674872cde8c8efd95e539aa0a01a770e90b
 
 # Application definition
 
@@ -84,6 +94,7 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+<<<<<<< HEAD
 DATABASES = {}
 DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
@@ -97,6 +108,21 @@ DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 #         'PORT': 5432
 #     }
 # }
+=======
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.getenv('ENGINE'),
+#         'NAME': os.getenv('NAME'),
+#         'USER': os.getenv('USER'),
+#         'PASSWORD': os.getenv('PASSWORD'),
+#         'HOST': os.getenv('HOST')
+#     }
+# }
+
+DATABASES = {}
+DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
+
+>>>>>>> 2964a674872cde8c8efd95e539aa0a01a770e90b
 
 
 # Password validation
@@ -135,7 +161,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'btre/static')
@@ -167,10 +193,5 @@ AWS_S3_FILE_OVERWRITE = os.getenv('AWS_S3_FILE_OVERWRITE')
 AWS_DEFAULT_ACL = os.getenv('AWS_DEFAULT_ACL')
 DEFAULT_FILE_STORAGE = os.getenv('DEFAULT_FILE_STORAGE')
 #STATICFILES_STORAGE= os.getenv('STATICFILES_STORAGE')
-
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
 
 

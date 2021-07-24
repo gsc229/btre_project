@@ -5,20 +5,26 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
+bandit = "*"
+flake8 = "*"
+mypy = "*"
 
 [packages]
 django = "*"
-psycopg2 = "*"
 pillow = "*"
 pylint-django = "*"
 python-dotenv = "*"
 gunicorn = "*"
-django-heroku = "*"
 whitenoise = "*"
 django-storages = "*"
 boto3 = "*"
+<<<<<<< HEAD
 dj-database-url = "*"
 psycopg2-binary = "*"
+=======
+psycopg2-binary = "==2.8.6"
+dj-database-url = "*"
+>>>>>>> 2964a674872cde8c8efd95e539aa0a01a770e90b
 
 [requires]
 python_version = "3.8"

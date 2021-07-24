@@ -11,9 +11,17 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+<<<<<<< HEAD
 import dj_database_url
 from dotenv import load_dotenv
 load_dotenv()
+=======
+
+from dotenv import load_dotenv
+load_dotenv()
+
+import dj_database_url
+>>>>>>> 1f3437d44cbc0a61ba873fddf5a6ac173875b015
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,12 +31,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y54w0o_et*-&!ltbl*3a45*o5jd)n^t=ij1r)_zw3lv+a0i#r9'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com', 'btre-project-bay.vercel.app', 'localhost']
+=======
+ALLOWED_HOSTS = ['greg-btrealestate.herokuapp.com', 'localhost', '134.209.160.227', 'gregc-realestate.com', 'www.gregc-realestate.com']
+>>>>>>> 1f3437d44cbc0a61ba873fddf5a6ac173875b015
 
 # Application definition
 
@@ -82,6 +94,7 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+<<<<<<< HEAD
 # DATABASES = {
 #     'default': {
 #         'ENGINE': os.getenv('ENGINE'),
@@ -95,6 +108,21 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {}
 DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
+=======
+DATABASES = {}
+DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'btredb',
+#         'USER': 'postgres',
+#         'PASSWORD': os.getenv('PASSWORD'),
+#         'HOST': 'localhost',
+#         'PORT': 5432
+#     }
+# }
+>>>>>>> 1f3437d44cbc0a61ba873fddf5a6ac173875b015
 
 
 # Password validation
@@ -166,4 +194,12 @@ AWS_DEFAULT_ACL = os.getenv('AMZWS_DEFAULT_ACL')
 DEFAULT_FILE_STORAGE = os.getenv('DEFAULT_FILE_STORAGE')
 #STATICFILES_STORAGE= os.getenv('STATICFILES_STORAGE')
 
+<<<<<<< HEAD
+=======
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     pass
+
+>>>>>>> 1f3437d44cbc0a61ba873fddf5a6ac173875b015
 

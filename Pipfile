@@ -18,8 +18,13 @@ gunicorn = "*"
 whitenoise = "*"
 django-storages = "*"
 boto3 = "*"
+<<<<<<< HEAD
 psycopg2-binary = "==2.8.6"
 dj-database-url = "*"
+=======
+dj-database-url = "*"
+psycopg2-binary = "*"
+>>>>>>> 1f3437d44cbc0a61ba873fddf5a6ac173875b015
 
 [requires]
 python_version = "3.8"

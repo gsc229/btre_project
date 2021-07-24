@@ -10,7 +10,7 @@ Pipfile.lock
 staticfiles
 /media
 media
-
+static
 ### Django ###
 *.log
 *.pot

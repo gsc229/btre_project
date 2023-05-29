@@ -6,6 +6,7 @@
 Pipfile.lock
 # environment vars
 .env
+env_copy.txt
 # Static files
 staticfiles
 /media
